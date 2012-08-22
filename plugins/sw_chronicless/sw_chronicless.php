@@ -61,7 +61,7 @@ class RaidPlannerPluginSw_chronicless extends RaidPlannerPlugin
 				'governingForm'	=> $data->governingForm,
 				'side'			=> $data->faction->name,
 				'logo'			=> $data->faction->logo,
-				'link'	=> $data->url,
+				'link'			=> $data->url,
 				'char_link'		=> "http://chronicle.thesecretworld.com/character/%s",
 			);
 
@@ -138,8 +138,6 @@ class RaidPlannerPluginSw_chronicless extends RaidPlannerPlugin
 
 	public function loadCSS()
 	{
-		JHTML::stylesheet('raidplanner_sw.css', 'images/raidplanner/css/' );
-		
 		return true;
 	}
 

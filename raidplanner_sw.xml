@@ -32,9 +32,6 @@
 		<file>role_ranged_dps.png</file>
 		<file>role_tank.png</file>
 	</fileset>
-	<fileset destination="css" folder="css">
-		<file>raidplanner_sw.css</file>
-	</fileset>
 	<administrator>
 		<fileset destination="plugins" folder="plugins">
 			<folder>sw_chronicless</folder>
