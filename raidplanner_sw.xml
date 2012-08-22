@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="raidplanner_theme">
+	<name>RaidPlanner The Secret Word Theme</name>
+	<creationDate>2012-08-22</creationDate>
+	<author>Taracque</author>
+	<authorEmail>taracque@taracque.hu</authorEmail>
+	<authorUrl>http://taracque.hu</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>http://www.gnu.org/licenseses/gpl-2.0.html GNU/GPL</license>
+	<version>0.0.1</version>
+	<releaseDate>2012-08-22</releaseDate>
+	<releaseType>Development release</releaseType>
+	<description>RaidPlanner The Secret Word Theme</description>
+	<install>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Player'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('black',	'Player', 'class_sw_player')</sql>
+
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Human'">		INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Human')</sql>
+
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Tank'">		INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Tank',			'white',	'#93232b',	'black',	'role_tank.png')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Melee DPS'">	INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Melee DPS',	'white',	'#a06729',	'black',	'role_melee_dps.png')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Ranged DPS'">	INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Ranged DPS',	'white',	'#2983a0',	'black',	'role_ranged_dps.png')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Healer'">		INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Healer',		'white',	'#6aa64d',	'black',	'role_heal.png')</sql>
+	</install>
+    <uninstall>
+    	<sql>DELETE FROM #__raidplanner_class WHERE class_name IN ('Player')</sql>
+    	<sql>DELETE FROM #__raidplanner_race WHERE race_name IN ('Human')</sql>
+    	<sql>DELETE FROM #__raidplanner_role WHERE role_name IN ('Tank', 'Melee DPS', 'Ranged DPS', 'Healer')</sql>
+	</uninstall>
+	<fileset destination="role_icons" folder="role_icons">
+		<file>role_heal.png</file>
+		<file>role_melee_dps.png</file>
+		<file>role_ranged_dps.png</file>
+		<file>role_tank.png</file>
+	</fileset>
+	<fileset destination="css" folder="css">
+		<file>raidplanner_sw.css</file>
+	</fileset>
+	<administrator>
+		<fileset destination="plugins" folder="plugins">
+			<folder>sw_chronicless</folder>
+		</fileset>
+	</administrator>
+</install>
